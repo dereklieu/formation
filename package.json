@@ -1,0 +1,16 @@
+{
+  "name": "formation",
+  "version": "1.0.0",
+  "description": "Static site publishing with S3, Lambda, and Terraform",
+  "main": "index.js",
+  "repository": "git@github.com:dereklieu/formation.git",
+  "author": "Derek Lieu <dl@dereklieu.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "static-site-generator-webpack-plugin": "^3.4.1",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "react": "^16.0.0"
+  }
+}
