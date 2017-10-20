@@ -1,7 +1,10 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
+const collect = require('./collect')
+
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
+  const content = await collect()
   return {
     entry: {
       main: path.resolve(__dirname, 'index.js')
@@ -14,12 +17,12 @@ async function createWebpackConfig () {
     },
 
     resolve: {
-      extensions: ['.js']
+      extensions: ['.js', '.jsx']
     },
 
     module: {
       rules: [{
-        test: /\.js?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -33,7 +36,7 @@ async function createWebpackConfig () {
     plugins: [
       new StaticGeneratorPlugin({
         paths: ['/'],
-        locals: {}
+        locals: { content }
       })
     ]
   }
