@@ -1,33 +1,33 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
-const collect = require('./collect')
+const collect = require('./app/collect')
 
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
   const content = await collect()
   return {
     entry: {
-      main: path.resolve(__dirname, 'index.js')
+      main: path.resolve(__dirname, 'app/index.js')
     },
 
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'build'),
+      path: path.resolve(__dirname, 'app/build'),
       libraryTarget: 'umd'
     },
 
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js']
     },
 
     module: {
       rules: [{
-        test: /\.(js|jsx)?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['es2015', 'react']
           }
         }
       }]

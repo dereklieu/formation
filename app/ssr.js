@@ -1,7 +1,7 @@
 const React = require('react')
 const { renderToString, renderToStaticMarkup } = require('react-dom/server')
-const App = require('./components/App.jsx')
-const Page = require('./components/Page.jsx')
+const App = require('./components/app')
+const Page = require('./components/page')
 
 module.exports = function ssr ({ webpackStats, content }) {
   const assets = Object.keys(webpackStats.compilation.assets)

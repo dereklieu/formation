@@ -1,3 +1,4 @@
+var React = require('react')
 function Page ({ body, ssr, js }) {
   return (
     <html>
@@ -12,4 +13,4 @@ function Page ({ body, ssr, js }) {
     </html>
   )
 }
-module.exports = page
+module.exports = Page
