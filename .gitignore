@@ -3,4 +3,4 @@ node_modules
 .env
 
 # Terraform
-infrastructure/env-dev/dev.tfvars
+infrastructure/env-dev/terraform.tfvars
