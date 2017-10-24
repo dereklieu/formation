@@ -7,7 +7,9 @@
   "author": "Derek Lieu <dl@dereklieu.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --inline false"
+    "start": "webpack-dev-server --config ./webpack.config.js --inline false",
+    "terraform-init": "cd ./infrastructure/env-dev && terraform init -input=true",
+    "terraform-plan": "cd ./infrastructure/env-dev && terraform get && terraform plan --var-file ./terraform.tfvars"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
