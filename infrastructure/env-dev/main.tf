@@ -2,6 +2,7 @@ variable "domain"               {}
 variable "region"               {}
 variable "aws_access_key"       {}
 variable "aws_secret_key"       {}
+variable "env_vars"             { type = "map" }
 
 provider "aws" {
   region     = "${var.region}"
@@ -11,6 +12,9 @@ provider "aws" {
 }
 
 module "app" {
-  source     = "../app"
-  domain     = "${var.domain}"
+  source          = "../app"
+  domain          = "${var.domain}"
+  app_package     = "../../build/app-package.zip"
+  env_vars        = "${var.env_vars}"
+  render_interval = "45 minutes"
 }
