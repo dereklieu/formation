@@ -1,6 +1,8 @@
+build
 node_modules
 *.swp
 .env
 
 # Terraform
 infrastructure/env-dev/terraform.tfvars
+infrastructure/env-dev/.terraform
