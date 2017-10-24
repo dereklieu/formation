@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.139.0",
+    "es6-promisify": "^5.0.0",
+    "mime": "^2.0.3",
+    "zlib": "^1.0.5"
+  }
+}
