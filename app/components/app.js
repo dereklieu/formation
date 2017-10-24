@@ -1,10 +1,12 @@
+'use strict'
 const React = require('react')
 class App extends React.Component {
   render () {
+    const {imageCredit} = this.props
     return (
-      <div className='spread image-canvas'>
-
-      </div>
+      <main className='spread image-canvas'>
+        <aside className='image-credit'>{imageCredit}</aside>
+      </main>
     )
   }
 }
