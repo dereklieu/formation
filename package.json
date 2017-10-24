@@ -16,7 +16,7 @@
     "terraform-init": "cd ./infrastructure/env-dev && terraform init -input=true && cd ../..",
     "terraform-plan": "cd ./infrastructure/env-dev && terraform get && terraform plan --var-file ./terraform.tfvars && cd ../..",
     "terraform-apply": "cd ./infrastructure/env-dev && terraform get && terraform apply --var-file ./terraform.tfvars && cd ../..",
-    "deploy": "npm run clean & npm run build && npm run copy && npm run lambda-install && npm run zip && npm run terraform-apply"
+    "prepare-deploy": "npm run clean & npm run build && npm run copy && npm run lambda-install && npm run zip"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
