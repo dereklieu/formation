@@ -12,7 +12,7 @@
     "build": "webpack -p --progress",
     "copy": "mkdirp build && cd lambda && copy ./*.{js,json} ../build && cd ..",
     "lambda-install": "cd build && npm install --production && cd ..",
-    "zip": "rimraf build/app-package.zip && cross-zip build build/app-package.zip",
+    "zip": "cd build && rimraf app-package.zip && cross-zip ./ app-package.zip && cd ..",
     "terraform-init": "cd ./infrastructure/env-dev && terraform init -input=true && cd ../..",
     "terraform-plan": "cd ./infrastructure/env-dev && terraform get && terraform plan --var-file ./terraform.tfvars && cd ../..",
     "terraform-apply": "cd ./infrastructure/env-dev && terraform get && terraform apply --var-file ./terraform.tfvars && cd ../..",
