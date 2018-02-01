@@ -3,6 +3,8 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const mime = require('mime')
 
+// Loads an image registry and randomly selects an image from it.
+// Returns the image path and credit.
 async function collect () {
   const registryPath = path.join(__dirname, 'assets/registry.yaml')
   try {
@@ -16,8 +18,7 @@ async function collect () {
 
   return {
     imageCredit: image.credit,
-    imageBase64: new Buffer(fs.readFileSync(imagePath)).toString('base64'),
-    imageMime: mime.getType(path.extname(image.file))
+    imageFile: image.file
   }
 }
 module.exports = collect
