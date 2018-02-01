@@ -6,3 +6,5 @@ node_modules
 # Terraform
 infrastructure/env-dev/terraform.tfvars
 infrastructure/env-dev/.terraform
+
+.DS_Store
