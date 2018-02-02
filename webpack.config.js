@@ -16,6 +16,9 @@ async function createWebpackConfig () {
       main: path.resolve(__dirname, 'app/index.js')
     },
 
+    stats: { warnings: false },
+    devServer: { stats: { warnings: false } },
+
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'build/app'),
@@ -45,6 +48,14 @@ async function createWebpackConfig () {
           ],
           fallback: 'style-loader'
         })
+      }, {
+        test: new RegExp(content.imageFile),
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'canvas.[ext]'
+          }
+        }
       }]
     },
 

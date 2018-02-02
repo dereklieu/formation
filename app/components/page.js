@@ -3,12 +3,12 @@ require('../sass/reset.scss')
 require('../sass/normalize.scss')
 require('../sass/normalize-opentype.scss')
 require('../sass/base.scss')
+require.context('../assets/images');
 
 var React = require('react')
 
 function Page ({ body, content, css, js }) {
-  const base64ImageString = `data:${content.imageMime};base64,${content.imageBase64}`
-  const imageCanvasStyle = `.image-canvas { background-image: url("${base64ImageString}"); }`
+  const imageCanvasStyle = `.image-canvas { background-image: url("canvas.jpg"); }`
   return (
     <html>
       <head>
