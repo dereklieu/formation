@@ -3,9 +3,17 @@ node_modules
 *.swp
 .env
 
-# Terraform
+# Terraform application sensitive keys
 infrastructure/env-dev/terraform.tfvars
+
+# Terraform backewnd sensitive keys
+infrastructure/env-dev/backend.tfvars
+
+# Terraform modules
 infrastructure/env-dev/.terraform
+
+# Terraform state file and backup state file
+infrastructure/env-dev/terraform.tfstate*
 
 # system
 .DS_Store
