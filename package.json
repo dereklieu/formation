@@ -11,12 +11,12 @@
     "clean": "rimraf build",
     "build": "webpack -p --progress",
     "copy": "mkdirp build && cd lambda && copy ./*.{js,json} ../build && cd ..",
-    "lambda-install": "cd build && npm install --production && cd ..",
+    "lambda-install": "cd build && yarn --production && cd ..",
     "zip": "cd build && rimraf app-package.zip && cross-zip ./ app-package.zip && cd ..",
-    "terraform-init": "cd ./infrastructure/env-dev && terraform init -input=true && cd ../..",
-    "terraform-plan": "cd ./infrastructure/env-dev && terraform get && terraform plan --var-file ./terraform.tfvars && cd ../..",
-    "terraform-apply": "cd ./infrastructure/env-dev && terraform get && terraform apply --var-file ./terraform.tfvars && cd ../..",
-    "prepare-deploy": "npm run clean & npm run build && npm run copy && npm run lambda-install && npm run zip"
+    "terraform-init": "cd ./infrastructure/env-dev && terraform init -input=true -backend-config=./backend.tfvars",
+    "terraform-plan": "cd ./infrastructure/env-dev && terraform get && terraform plan --var-file ./terraform.tfvars",
+    "terraform-apply": "cd ./infrastructure/env-dev && terraform get && terraform apply --var-file ./terraform.tfvars",
+    "prepare-deploy": "yarn clean & yarn build && yarn copy && yarn lambda-install && yarn zip"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
