@@ -9,7 +9,9 @@ body {
 }
 
 .image-canvas {
-  background-size: cover;
+ // These styles are hardcoded in the HTML <head>.
+ // background: url("canvas.jpg") no-repeat center center fixed;
+ // background-size: cover;
 }
 
 /* left-aligned image credit */
