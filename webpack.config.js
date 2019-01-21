@@ -1,12 +1,9 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const collect = require('./app/collect')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contenthash].css',
-  disable: process.env.NODE_ENV === 'development'
-})
+const dev = process.env.NODE_ENV === 'development'
 
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
@@ -22,7 +19,8 @@ async function createWebpackConfig () {
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'build/app'),
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      globalObject: 'this'
     },
 
     resolve: {
@@ -36,18 +34,19 @@ async function createWebpackConfig () {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       }, {
         test: /\.scss?$/,
-        use: extractSass.extract({
-          use: [
-            'css-loader',
-            'sass-loader'
-          ],
-          fallback: 'style-loader'
-        })
+        use: [
+          dev ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          'css-loader',
+          'sass-loader'
+        ]
       }, {
         test: new RegExp(content.imageFile),
         use: {
@@ -64,7 +63,9 @@ async function createWebpackConfig () {
         paths: ['/'],
         locals: { content }
       }),
-      extractSass
+      new MiniCssExtractPlugin({
+        filename: dev ? '[name].css' : '[name].[contenthash].css'
+      })
     ]
   }
 }
