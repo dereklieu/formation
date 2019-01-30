@@ -7,9 +7,9 @@
   "author": "Derek Lieu <dl@dereklieu.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --inline false",
+    "start": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --inline false",
     "clean": "rimraf build",
-    "build": "webpack -p --progress",
+    "build": "NODE_ENV=production webpack -p --progress",
     "copy": "mkdirp build && cd lambda && copy ./*.{js,json} ../build && cd ..",
     "lambda-install": "cd build && yarn --production && cd ..",
     "zip": "cd build && rimraf app-package.zip && cross-zip ./ app-package.zip && cd ..",
@@ -43,6 +43,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   }
