@@ -9,7 +9,9 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <main className='spread image-canvas'>
-          <aside className='image-credit'>{imageCredit}</aside>
+          <aside className='image-credit-wrapper'>
+            <p className='image-credit'>{imageCredit}</p>
+          </aside>
         </main>
       </Provider>
     )
