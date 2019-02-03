@@ -23,7 +23,9 @@ class App extends React.Component {
           <div className={c('full spread image-canvas transition-filter', {blur: this.state.isBlur})} />
 
           <main className='over-spread'>
-            <aside className='image-credit'>{imageCredit}</aside>
+            <aside className='image-credit-wrapper'>
+              <p className='image-credit'>{imageCredit}</p>
+            </aside>
           </main>
 
         </div>
