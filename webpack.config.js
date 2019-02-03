@@ -45,7 +45,13 @@ async function createWebpackConfig () {
             options: {}
           },
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./app/sass/utils.scss']
+            }
+          }
         ]
       }, {
         test: new RegExp(content.imageFile),
