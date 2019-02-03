@@ -13,8 +13,9 @@ async function createWebpackConfig () {
       main: path.resolve(__dirname, 'app/index.js')
     },
 
-    stats: { warnings: false },
-    devServer: { stats: { warnings: false } },
+    stats: 'minimal',
+    devServer: { stats: 'minimal' },
+    mode: dev ? 'development' : 'production',
 
     output: {
       filename: 'bundle.js',
@@ -40,7 +41,7 @@ async function createWebpackConfig () {
       }, {
         test: /\.scss?$/,
         use: [
-          dev ? 'style-loader' : {
+          {
             loader: MiniCssExtractPlugin.loader,
             options: {}
           },
@@ -66,11 +67,12 @@ async function createWebpackConfig () {
 
     plugins: [
       new StaticGeneratorPlugin({
+        crawl: true,
         paths: ['/'],
         locals: { content }
       }),
       new MiniCssExtractPlugin({
-        filename: dev ? '[name].css' : '[name].[contenthash].css'
+        filename: '[name].[contenthash].css'
       })
     ]
   }

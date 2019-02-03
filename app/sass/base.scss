@@ -8,6 +8,36 @@ body {
   position: relative;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
+.full {
+  width: 100%;
+  height: 100vh;
+}
+
+.spread {
+  z-index: 1;
+}
+
+.over-spread {
+  z-index: 2;
+}
+
+.bg-dark {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, .85);
+}
+
+.transition-filter {
+  transition: 200ms filter linear;
+}
+
+.blur {
+  filter: blur(1px);
+}
+
 .image-canvas {
  // These styles are hardcoded in the HTML <head>.
  // background: url("canvas.jpg") no-repeat center center fixed;
