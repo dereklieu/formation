@@ -53,3 +53,11 @@ $xlarge-width: 1200px;
     @content;
   }
 }
+
+@mixin filter ($type, $amount) {
+  -webkit-filter: $type+unquote('(#{$amount})');
+  -moz-filter: $type+unquote('(#{$amount})');
+  -ms-filter: $type+unquote('(#{$amount})');
+  -o-filter: $type+unquote('(#{$amount})');
+  filter: $type+unquote('(#{$amount})');
+}
