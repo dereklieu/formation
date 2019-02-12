@@ -29,15 +29,15 @@ class App extends React.Component {
   }
 
   render () {
-    const {imageCredit} = this.props
+    const { imageCredit } = this.props
     return (
       <Provider store={store}>
         <div className='full noscroll'>
-          <div className={c('spread image-canvas transition-filter', {blur: this.state.isBlur})} />
+          <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
 
           <main className='over-spread'>
             <nav className='nav-wrapper'>
-              <div className={c('nav-items transition-filter', {blur: !this.state.isBlur})}>
+              <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
                 <span className='bg-dark nav-item'>Hello, hi, whatever</span>
                 <ul>
                   {navItems.map(this.navItem)}

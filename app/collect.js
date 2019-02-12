@@ -1,7 +1,6 @@
 const path = require('path')
 const fs = require('fs')
 const yaml = require('js-yaml')
-const mime = require('mime')
 
 function random (array) {
   return array[Math.floor(Math.random() * array.length)]
@@ -17,12 +16,11 @@ async function collect () {
     throw new Error(e)
   }
   const image = random(registry.images)
-  const imagePath = path.join(__dirname, 'assets/images', image.file)
 
   try {
     var greetings = yaml.safeLoad(fs.readFileSync(path.join(assetsPath, 'greeting.yaml')))
   } catch (e) {
-      throw new Error(e)
+    throw new Error(e)
   }
   const greeting = random(greetings.greetings)
 

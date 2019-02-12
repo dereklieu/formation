@@ -1,0 +1,21 @@
+{
+  "extends": ["standard"],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/jsx-curly-spacing": [2, "never"]
+  }
+}
