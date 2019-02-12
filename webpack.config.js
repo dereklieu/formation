@@ -4,18 +4,19 @@ const collect = require('./app/collect')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const dev = process.env.NODE_ENV === 'development'
+const mode = dev ? 'development' : 'production'
 
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
   const content = await collect()
   return {
+    mode,
     entry: {
       main: path.resolve(__dirname, 'app/index.js')
     },
 
     stats: 'minimal',
     devServer: { stats: 'minimal' },
-    mode: dev ? 'development' : 'production',
 
     output: {
       filename: 'bundle.js',
