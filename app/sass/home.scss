@@ -1,0 +1,26 @@
+.image-canvas {
+ // These styles are hardcoded in the HTML <head>.
+ // background: url("canvas.jpg") no-repeat center center fixed;
+ // background-size: cover;
+}
+
+/* left-aligned image credit */
+.image-credit-wrapper {
+  bottom: 1em;
+  right: 0;
+
+  position: absolute;
+
+  text-align: center;
+  width: 100%;
+
+  @include medium-up {
+    right: 1em;
+    text-align: left;
+    width: auto;
+  }
+}
+
+.image-credit {
+  display: inline;
+}

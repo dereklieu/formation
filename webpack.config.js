@@ -1,28 +1,28 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const collect = require('./app/collect')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contenthash].css',
-  disable: process.env.NODE_ENV === 'development'
-})
+const dev = process.env.NODE_ENV === 'development'
+const mode = dev ? 'development' : 'production'
 
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
   const content = await collect()
   return {
+    mode,
     entry: {
       main: path.resolve(__dirname, 'app/index.js')
     },
 
-    stats: { warnings: false },
-    devServer: { stats: { warnings: false } },
+    stats: 'minimal',
+    devServer: { stats: 'minimal' },
 
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'build/app'),
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      globalObject: 'this'
     },
 
     resolve: {
@@ -36,18 +36,25 @@ async function createWebpackConfig () {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       }, {
         test: /\.scss?$/,
-        use: extractSass.extract({
-          use: [
-            'css-loader',
-            'sass-loader'
-          ],
-          fallback: 'style-loader'
-        })
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./app/sass/utils.scss']
+            }
+          }
+        ]
       }, {
         test: new RegExp(content.imageFile),
         use: {
@@ -61,10 +68,13 @@ async function createWebpackConfig () {
 
     plugins: [
       new StaticGeneratorPlugin({
+        crawl: true,
         paths: ['/'],
         locals: { content }
       }),
-      extractSass
+      new MiniCssExtractPlugin({
+        filename: '[name].[contenthash].css'
+      })
     ]
   }
 }

@@ -1,0 +1,26 @@
+.nav-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.nav-items {
+  margin: 10vh auto 0;
+  width: 80%;
+}
+
+.nav-item {
+  display: inline-block;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.125rem;
+  padding: 0.125rem 0;
+}
+
+.nav-item-hover {
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: red;
+  }
+}

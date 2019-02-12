@@ -5,10 +5,16 @@ require('../sass/normalize-opentype.scss')
 require('../sass/base.scss')
 require.context('../assets/images');
 
-var React = require('react')
+const React = require('react')
+
+const imageCanvasStyle = `
+  .image-canvas {
+    background: url("canvas.jpg") no-repeat center center fixed;
+    background-size: cover
+  }
+`
 
 function Page ({ body, content, css, js }) {
-  const imageCanvasStyle = `.image-canvas { background-image: url("canvas.jpg"); }`
   return (
     <html>
       <head>
