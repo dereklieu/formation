@@ -23,13 +23,17 @@ class App extends React.Component {
   }
 
   navItem (displayName) {
-    return <li key={displayName}>
+    return <li key={displayName} className='nav-row'>
       <a className='bg-light nav-item nav-item-hover' href={link(displayName)} title={`Visit ${displayName}`}>{displayName}</a>
     </li>
   }
 
+  navWord (displayName, i) {
+    return <span key={i} className='bg-dark nav-item nav-word'>{displayName}</span>
+  }
+
   render () {
-    const { imageCredit } = this.props
+    const { imageCredit, greeting } = this.props
     return (
       <Provider store={store}>
         <div className='full noscroll'>
@@ -38,7 +42,7 @@ class App extends React.Component {
           <main className='over-spread'>
             <nav className='nav-wrapper'>
               <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
-                <span className='bg-dark nav-item'>Hello, hi, whatever</span>
+                <span className='clearfix nav-row'>{greeting.split(' ').map(this.navWord)}</span>
                 <ul>
                   {navItems.map(this.navItem)}
                 </ul>

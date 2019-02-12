@@ -10,12 +10,19 @@
   width: 80%;
 }
 
+.nav-row {
+  margin: 0.125rem;
+}
+
 .nav-item {
   display: inline-block;
   font-size: 1.75rem;
   font-weight: bold;
-  margin: 0.125rem;
-  padding: 0.125rem 0;
+  padding: 0.125rem;
+}
+
+.nav-word {
+  float: left;
 }
 
 .nav-item-hover {
