@@ -5,6 +5,7 @@ require('../sass/nav.scss')
 const c = require('classnames')
 const React = require('react')
 const { Provider } = require('react-redux')
+const { Helmet } = require('react-helmet')
 const store = require('../store/store')()
 const { link } = require('../utils')
 
@@ -36,6 +37,9 @@ class App extends React.Component {
     const { imageCredit, greeting } = this.props
     return (
       <Provider store={store}>
+        <Helmet>
+          <title>Derek Lieu</title>
+        </Helmet>
         <div className='full noscroll'>
           <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
 

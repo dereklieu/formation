@@ -18,7 +18,7 @@ function Page ({ body, content, css, js }) {
   return (
     <html>
       <head>
-        <title>Merp</title>
+        <title>Derek Lieu</title>
         {css.map((href, i) => <link rel="stylesheet" key={`css-${i}`} href={href}/>)}
         <style dangerouslySetInnerHTML={{ __html: imageCanvasStyle }} />
       </head>
