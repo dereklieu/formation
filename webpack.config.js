@@ -16,7 +16,7 @@ async function createWebpackConfig () {
     },
 
     stats: 'minimal',
-    devServer: { stats: 'minimal' },
+    devServer: { stats: 'errors-only' },
 
     output: {
       filename: 'bundle.js',
