@@ -16,10 +16,7 @@ async function createWebpackConfig () {
     },
 
     stats: 'minimal',
-    devServer: {
-      stats: 'errors-only',
-      contentBase: path.resolve(__dirname, 'build/app')
-    },
+    devServer: { stats: 'errors-only' },
 
     output: {
       filename: 'bundle.js',
@@ -45,7 +42,7 @@ async function createWebpackConfig () {
       }, {
         test: /\.scss?$/,
         use: [
-          (dev ? null : { loader: MiniCssExtractPlugin.loader }),
+          { loader: MiniCssExtractPlugin.loader },
           'css-loader',
           'sass-loader',
           {
@@ -54,7 +51,7 @@ async function createWebpackConfig () {
               resources: ['./app/sass/utils.scss']
             }
           }
-        ].filter(Boolean)
+        ]
       }, {
         test: new RegExp(content.imageFile),
         use: {
@@ -66,7 +63,7 @@ async function createWebpackConfig () {
       }]
     },
 
-    plugins: dev ? [] : [
+    plugins: [
       new StaticGeneratorPlugin({
         crawl: true,
         paths: ['/'],
