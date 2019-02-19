@@ -3,7 +3,8 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 
 function random (array) {
-  return array[Math.floor(Math.random() * array.length)]
+  const index = Math.floor(Math.random() * array.length)
+  return array[index]
 }
 
 // Loads an image registry and randomly selects an image from it.
