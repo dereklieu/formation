@@ -4,7 +4,9 @@ const { StaticRouter, Route } = require('react-router-dom')
 
 const { Provider } = require('react-redux')
 const store = require('../store')()
-const Home = require('./home')
+
+const Home = require('../pages/home')
+const Work = require('../pages/work')
 
 class App extends React.Component {
   render () {
@@ -15,6 +17,7 @@ class App extends React.Component {
           <Route exact path='/'
             render={(props) => <Home {...props} {...this.props} />}
           />
+          <Route exact path='/work' component={Work} />
         </Provider>
       </StaticRouter>
     )
