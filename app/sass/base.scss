@@ -1,9 +1,6 @@
 body {
   font-family: helvetica;
   font-size: 1em;
-  @include retina {
-    font-size: 2em;
-  }
 }
 
 a {
@@ -19,6 +16,50 @@ a {
     height: 0;
     clear: both;
   }
+}
+
+.main {
+  padding: 8vh 1em;
+  @include medium-up {
+    padding: 8vh 10%;
+  }
+}
+
+.prose {
+  max-width: 480px;
+  a {
+    font-weight: bold;
+    color: #A285FF;
+    &:hover {
+      color: lighten(#A285FF, 10%);
+    }
+  }
+
+  p {
+    line-height: 1.2;
+    margin-bottom: 2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .section {
+    &:after {
+      content: '----';
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.main-title {
+  @include title;
+  line-height: 1.4em;
+}
+
+.section {
+  margin-top: 4vh;
+  position: relative;
 }
 
 .noscroll {
@@ -54,10 +95,29 @@ a {
   background-color: rgba(255, 255, 255, .8);
 }
 
+.bg-fixed {
+  position: fixed;
+  z-index: -1;
+}
+
+.yellow {
+  color: #F5BA42;
+}
+
 .transition-filter {
   transition: 600ms filter linear;
 }
 
 .blur {
   @include filter(blur, 5px);
+}
+
+.inline-wrap {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+p.inline-wrap {
+  padding: 0.1em 0;
+  line-height: 1.4em;
 }

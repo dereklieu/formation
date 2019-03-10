@@ -15,10 +15,8 @@
 }
 
 .nav-item {
+  @include title;
   display: inline-block;
-  font-size: 1.75em;
-  font-weight: bold;
-  padding: 0.135em;
 }
 
 .nav-word {

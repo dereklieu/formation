@@ -61,3 +61,9 @@ $xlarge-width: 1200px;
   -o-filter: $type+unquote('(#{$amount})');
   filter: $type+unquote('(#{$amount})');
 }
+
+@mixin title {
+  font-size: 1.75em;
+  font-weight: bold;
+  padding: 0.135em;
+}
