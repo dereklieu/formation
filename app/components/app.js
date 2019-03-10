@@ -7,6 +7,7 @@ const store = require('../store')()
 
 const Home = require('../pages/home')
 const Work = require('../pages/work')
+const Resume = require('../pages/resume')
 
 class App extends React.Component {
   render () {
@@ -18,6 +19,7 @@ class App extends React.Component {
             render={(props) => <Home {...props} {...this.props} />}
           />
           <Route exact path='/work' component={Work} />
+          <Route exact path='/resume' component={Resume} />
         </Provider>
       </StaticRouter>
     )
