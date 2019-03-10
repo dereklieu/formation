@@ -1,0 +1,35 @@
+$grey: #444444;
+
+.resume-split {
+  align-items: flex-start;
+  display: flex;
+
+  > * {
+    padding: 1em 0 0 2em;
+    &:last-child {
+      padding: 1em 1em 0 2em;
+    }
+  }
+
+  .section-title {
+    width: 150px;
+    text-align: right;
+  }
+}
+
+.resume-dl {
+  dt {
+    color: $grey;
+  }
+
+  dd {
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    em {
+      color: $grey;
+    }
+  }
+}
