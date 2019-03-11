@@ -1,15 +1,27 @@
-.resume-split {
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: wrap;
-
+.section-resume {
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
   .section-title {
-    @include small-title;
-    padding: 0 1em 1em 0;
+    margin-bottom: 0.5em;
+    position: static;
+  }
+  @include medium-up {
+    $section-width: 80px;
+    margin-left: $section-width;
+    padding-left: 2em;
+    .section-title {
+      left: -$section-width;
+      margin-bottom: 0;
+      position: absolute;
+      text-align: right;
+      width: $section-width;
+    }
   }
 }
 
-.resume-dl {
+.resume-detail {
+  @include small-text;
   em {
     color: $lightgray;
   }
@@ -19,6 +31,9 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
 
+  li {
+    margin-bottom: 0.1em;
   }
 }

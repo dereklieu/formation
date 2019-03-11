@@ -74,3 +74,13 @@ $xlarge-width: 1200px;
   font-size: 1.45em;
   font-weight: bold;
 }
+
+@mixin text {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+@mixin small-text {
+  font-size: 0.875em;
+  line-height: 1.4;
+}
