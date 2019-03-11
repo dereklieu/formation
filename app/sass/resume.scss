@@ -1,25 +1,17 @@
-$grey: #444444;
-
 .resume-split {
   align-items: flex-start;
   display: flex;
-
-  > * {
-    padding: 1em 0 0 2em;
-    &:last-child {
-      padding: 1em 1em 0 2em;
-    }
-  }
+  flex-wrap: wrap;
 
   .section-title {
-    width: 150px;
-    text-align: right;
+    @include small-title;
+    padding: 0 1em 1em 0;
   }
 }
 
 .resume-dl {
-  dt {
-    color: $grey;
+  em {
+    color: $lightgray;
   }
 
   dd {
@@ -28,8 +20,5 @@ $grey: #444444;
       margin-bottom: 0;
     }
 
-    em {
-      color: $grey;
-    }
   }
 }

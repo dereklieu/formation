@@ -2,6 +2,8 @@
 // Nothing that renders to CSS should live in this file.
 // https://github.com/shakacode/sass-resources-loader
 
+$lightgray: #777777;
+
 @mixin retina {
   @media
     only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -66,4 +68,9 @@ $xlarge-width: 1200px;
   font-size: 1.75em;
   font-weight: bold;
   padding: 0.135em;
+}
+
+@mixin small-title {
+  font-size: 1.45em;
+  font-weight: bold;
 }
