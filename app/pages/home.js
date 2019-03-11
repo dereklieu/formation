@@ -5,6 +5,7 @@ require('../sass/nav.scss')
 const c = require('classnames')
 const React = require('react')
 const { Helmet } = require('react-helmet')
+const nextTick = require('next-tick')
 const { link } = require('../utils')
 
 const navItems = [
@@ -18,7 +19,13 @@ class App extends React.Component {
     this.state = {
       isBlur: false
     }
-    setTimeout(() => this.setState({ isBlur: true }), 800)
+  }
+
+  componentDidMount () {
+    const storage = !!(window && window.localStorage)
+    const duration = storage && localStorage.getItem('initialBlur') !== 'true' ? 800 : 5
+    setTimeout(() => nextTick(() => this.setState({ isBlur: true })), duration)
+    storage && localStorage.setItem('initialBlur', 'true')
   }
 
   navItem (displayName) {
