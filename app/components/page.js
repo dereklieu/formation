@@ -23,7 +23,7 @@ function Page ({ body, content, css, js }) {
         <style dangerouslySetInnerHTML={{ __html: imageCanvasStyle }} />
       </head>
       <body>
-        <div id='react-root' className='spread' dangerouslySetInnerHTML={{ __html: body }}/>
+        <div id='react-root' dangerouslySetInnerHTML={{ __html: body }}/>
         <script dangerouslySetInnerHTML={{ __html: `window.ssr = ${JSON.stringify(content)}` }}/>
         {js.map((src, i) => <script key={`js-${i}`} src={'/' + src}/>)}
       </body>

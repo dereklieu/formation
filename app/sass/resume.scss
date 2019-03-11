@@ -7,7 +7,7 @@
     position: static;
   }
   @include medium-up {
-    $section-width: 80px;
+    $section-width: 95px;
     margin-left: $section-width;
     padding-left: 2em;
     .section-title {
