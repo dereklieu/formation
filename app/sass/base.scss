@@ -5,6 +5,7 @@ body {
 
 a {
   color: inherit;
+  transition: color .2s;
   text-decoration: none;
 }
 
@@ -29,9 +30,9 @@ a {
   max-width: 480px;
   a {
     font-weight: bold;
-    color: #A285FF;
+    color: $blue;
     &:hover {
-      color: lighten(#A285FF, 10%);
+      color: lighten($blue, 10%);
     }
   }
 

@@ -36,4 +36,11 @@
   li {
     margin-bottom: 0.1em;
   }
+
+  a {
+    color: $blue;
+    &:hover {
+      color: lighten($blue, 10%);
+    }
+  }
 }
