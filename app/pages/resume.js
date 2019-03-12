@@ -52,11 +52,22 @@ class Resume extends React.Component {
           <section className='section section-resume' id='recent-projects'>
             <h3 className='section-title'>Recent Projects</h3>
             <dl className='resume-detail'>
-              <dt><b>Washington Post 2016 Elections Map</b></dt>
+              <dt><b>Washington Post Presidential Elections</b></dt>
               <dd>
                 <ul>
-                  <li>Led a small team to engineer the elections</li>
-                  <li>Didn't get Marco Rubio elected</li>
+                  <li><em>Project lead, front-end build</em></li>
+                  <li>Launched dynamic, compelling coverage to millions of newswatchers on election day 2016 with no major hiccups.</li>
+                  <li>Oversaw development of data pipeline and API capable of handling enormous traffic spikes.</li>
+                  <li>Built reusable, responsive visual components integrated seamlessly into <a href='https://www.washingtonpost.com' target='_blank'>washingtonpost.com</a>.</li>
+                  <li>Leveraged and extended MapboxGL.js to render custom projections and real-time data.</li>
+                </ul>
+              </dd>
+
+              <dt><b>Red Cross GO</b></dt>
+              <dd>
+                <ul>
+                  <li><em>Project lead, infrastructure, front-end/back-end build</em></li>
+                  <li>Built platform to modernize data management practices at the world's largest humanitarian organization.</li>
                 </ul>
               </dd>
             </dl>
