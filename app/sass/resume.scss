@@ -1,0 +1,46 @@
+.section-resume {
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
+  .section-title {
+    margin-bottom: 0.5em;
+    position: static;
+  }
+  @include medium-up {
+    $section-width: 95px;
+    margin-left: $section-width;
+    padding-left: 2em;
+    .section-title {
+      left: -$section-width;
+      margin-bottom: 0;
+      position: absolute;
+      text-align: right;
+      width: $section-width;
+    }
+  }
+}
+
+.resume-detail {
+  @include small-text;
+  em {
+    color: $lightgray;
+  }
+
+  dd {
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    margin-bottom: 0.1em;
+  }
+
+  a {
+    color: $blue;
+    &:hover {
+      color: lighten($blue, 10%);
+    }
+  }
+}

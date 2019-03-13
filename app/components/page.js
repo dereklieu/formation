@@ -19,13 +19,13 @@ function Page ({ body, content, css, js }) {
     <html>
       <head>
         <title>Derek Lieu</title>
-        {css.map((href, i) => <link rel="stylesheet" key={`css-${i}`} href={href}/>)}
+        {css.map((href, i) => <link rel="stylesheet" key={`css-${i}`} href={'/' + href}/>)}
         <style dangerouslySetInnerHTML={{ __html: imageCanvasStyle }} />
       </head>
       <body>
-        <div id='react-root' className='spread' dangerouslySetInnerHTML={{ __html: body }}/>
+        <div id='react-root' dangerouslySetInnerHTML={{ __html: body }}/>
         <script dangerouslySetInnerHTML={{ __html: `window.ssr = ${JSON.stringify(content)}` }}/>
-        {js.map((src, i) => <script key={`js-${i}`} src={src}/>)}
+        {js.map((src, i) => <script key={`js-${i}`} src={'/' + src}/>)}
       </body>
     </html>
   )

@@ -1,66 +1,29 @@
 'use strict'
-require('../sass/home.scss')
-require('../sass/nav.scss')
-
-const c = require('classnames')
 const React = require('react')
-const { Provider } = require('react-redux')
-const { Helmet } = require('react-helmet')
-const store = require('../store/store')()
-const { link } = require('../utils')
+const { StaticRouter, Route } = require('react-router-dom')
 
-const navItems = [
-  'work',
-  'resume'
-]
+const { Provider } = require('react-redux')
+const store = require('../store')()
+
+const Home = require('../pages/home')
+const Work = require('../pages/work')
+const Resume = require('../pages/resume')
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      isBlur: false
-    }
-    setTimeout(() => this.setState({ isBlur: true }), 800)
-  }
-
-  navItem (displayName) {
-    return <li key={displayName} className='nav-row'>
-      <a className='bg-light nav-item nav-item-hover' href={link(displayName)} title={`Visit ${displayName}`}>{displayName}</a>
-    </li>
-  }
-
-  navWord (displayName, i) {
-    return <span key={i} className='bg-dark nav-item nav-word'>{displayName}</span>
-  }
-
   render () {
-    const { imageCredit, greeting } = this.props
-    return (
-      <Provider store={store}>
-        <Helmet>
-          <title>Derek Lieu</title>
-        </Helmet>
-        <div className='full noscroll'>
-          <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
-
-          <main className='over-spread'>
-            <nav className='nav-wrapper'>
-              <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
-                <span className='clearfix nav-row'>{greeting.split(' ').map(this.navWord)}</span>
-                <ul>
-                  {navItems.map(this.navItem)}
-                </ul>
-              </div>
-            </nav>
-
-            <aside className='image-credit-wrapper'>
-              <p className='bg-dark image-credit'>{imageCredit}</p>
-            </aside>
-          </main>
-
-        </div>
-      </Provider>
+    const { path } = this.props
+    const router = (
+      <StaticRouter location={path} context={{}}>
+        <Provider store={store}>
+          <Route exact path='/'
+            render={(props) => <Home {...props} {...this.props} />}
+          />
+          <Route exact path='/work' component={Work} />
+          <Route exact path='/resume' component={Resume} />
+        </Provider>
+      </StaticRouter>
     )
+    return router
   }
 }
 module.exports = App

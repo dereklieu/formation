@@ -1,7 +1,7 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const collect = require('./app/collect')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const dev = process.env.NODE_ENV === 'development'
 const mode = dev ? 'development' : 'production'
@@ -16,7 +16,7 @@ async function createWebpackConfig () {
     },
 
     stats: 'minimal',
-    devServer: { stats: 'minimal' },
+    devServer: { stats: 'errors-only' },
 
     output: {
       filename: 'bundle.js',
@@ -42,10 +42,7 @@ async function createWebpackConfig () {
       }, {
         test: /\.scss?$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {}
-          },
+          { loader: MiniCssExtractPlugin.loader },
           'css-loader',
           'sass-loader',
           {

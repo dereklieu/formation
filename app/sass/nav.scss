@@ -15,19 +15,33 @@
 }
 
 .nav-item {
+  @include title;
   display: inline-block;
-  font-size: 1.75rem;
-  font-weight: bold;
-  padding: 0.135rem;
 }
 
 .nav-word {
   float: left;
 }
 
+.header-nav-item,
 .nav-item-hover {
   transition: background-color 0.2s ease-in-out;
   &:hover {
     background-color: red;
   }
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  width: 100%;
+}
+
+.header-nav-items {
+  margin: 1em;
+}
+
+.header-nav-item {
+  font-weight: bold;
 }
