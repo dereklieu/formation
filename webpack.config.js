@@ -65,8 +65,11 @@ async function createWebpackConfig () {
 
     plugins: [
       new StaticGeneratorPlugin({
-        crawl: true,
-        paths: ['/'],
+        paths: [
+          '/',
+          '/resume',
+          '/work'
+        ],
         locals: { content }
       }),
       new MiniCssExtractPlugin({
