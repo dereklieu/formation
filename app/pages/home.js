@@ -9,7 +9,7 @@ const nextTick = require('next-tick')
 const { link } = require('../utils')
 
 const navItems = [
-  'work'
+  'about'
 ]
 
 class App extends React.Component {

@@ -67,7 +67,7 @@ async function createWebpackConfig () {
       new StaticGeneratorPlugin({
         paths: [
           '/',
-          '/resume',
+          '/about',
           '/work'
         ],
         locals: { content }

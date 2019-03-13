@@ -18,7 +18,7 @@ function Page ({ body, content, css, js }) {
   return (
     <html>
       <head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="I'm an engineer and product lead, and I live in San Francisco." />
         <title>Derek Lieu</title>
