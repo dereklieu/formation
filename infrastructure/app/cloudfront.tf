@@ -42,8 +42,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  custom_error_response = ["${var.response_not_found}", "${var.response_forbidden}"]
-
   viewer_certificate {
     acm_certificate_arn       = "${data.aws_acm_certificate.website_certificate.arn}"
     minimum_protocol_version  = "TLSv1"
