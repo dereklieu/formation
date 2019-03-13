@@ -14,11 +14,10 @@ class Work extends React.Component {
         </Helmet>
         <Nav />
         <main className='main prose'>
-          <h3 className='main-title bg-dark inline-wrap'>Good Work</h3>
+          <h3 className='main-title bg-dark inline-wrap'>Work</h3>
 
           <section className='section'>
             <p>I write software for journalists, humanitarian crises mappers and responders, and people doing international development.</p>
-            <p>The best part of my job is getting to meet face to face with someone in one of these fields, and learning enough so as not to make some terrible design choice that would hinder or otherwise completely wreck every aspect of their important, live-saving, democracy-affirming work.</p>
           </section>
 
           <section className='section'>

@@ -15,7 +15,7 @@ class Resume extends React.Component {
         </Helmet>
         <main className='main'>
           <section className='prose' id='greetings'>
-            <h3 className='main-title bg-dark inline-wrap'>Hay</h3>
+            <h3 className='main-title bg-dark inline-wrap'>Derek Lieu</h3>
           </section>
 
           <section className='section prose' id='brief'>
