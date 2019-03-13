@@ -44,7 +44,7 @@ class App extends React.Component {
         <Helmet>
           <title>Derek Lieu</title>
         </Helmet>
-        <div className='full noscroll'>
+        <div className='home full noscroll'>
           <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
 
           <main className='over-spread'>
