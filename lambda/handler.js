@@ -16,7 +16,7 @@ module.exports.default = function handler (event, context, callback) {
 }
 
 function run () {
-  const files = fs.readdirSync(path.join(__dirname, 'app'))
+  const files = readdir('app')
   return Promise.all(files.map(upload))
   .then(invalidate)
 }
@@ -52,4 +52,18 @@ function invalidate () {
     }
   }
   return cloudfront.createInvalidation(params).promise()
+}
+
+function readdir (dir) {
+  const contents = fs.readdirSync(path.join(__dirname, dir))
+  return contents.reduce((acc, curr) => {
+    let fileOrDirectory = path.join(dir, curr)
+    let stats = fs.lstatSync(path.join(__dirname, fileOrDirectory))
+    if (stats.isFile()) {
+      return acc.concat([curr])
+    } else if (stats.isDirectory()) {
+      return acc.concat(readdir(fileOrDirectory).map(file => path.join(curr, file)))
+    }
+    return null
+  }, []).filter(Boolean)
 }
