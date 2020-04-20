@@ -1,15 +1,15 @@
 data "aws_acm_certificate" "website_certificate" {
-  domain    = "${var.domain}"
+  domain    = var.domain
   statuses  = ["ISSUED"]
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name   = "${aws_s3_bucket.website.bucket_domain_name}"
+    domain_name   = aws_s3_bucket.website.bucket_domain_name
     origin_id     = "websiteS3Origin"
   }
 
-  aliases = ["${var.domain}", "www.${var.domain}"]
+  aliases = [var.domain, "www.${var.domain}"]
 
   enabled             = true
   is_ipv6_enabled     = true
@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn       = "${data.aws_acm_certificate.website_certificate.arn}"
+    acm_certificate_arn       = data.aws_acm_certificate.website_certificate.arn
     minimum_protocol_version  = "TLSv1"
     ssl_support_method        = "sni-only"
   }

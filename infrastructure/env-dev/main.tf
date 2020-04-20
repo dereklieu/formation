@@ -20,11 +20,11 @@ variable "aws_access_key"       {}
 
 variable "aws_secret_key"       {}
 
-variable "env_vars"             { type = "map" }
+variable "env_vars"             { type = map(string) }
 
 variable "response_not_found"   {
   description = "Return 200 for 404 paths to support SPA routing"
-  type        = "map"
+  type        = map(string)
   default     = {
     error_code          = "404"
     response_code       = "200"
@@ -34,7 +34,7 @@ variable "response_not_found"   {
 
 variable "response_forbidden"   {
   description = "Return 200 for 404 paths to support SPA routing"
-  type        = "map"
+  type        = map(string)
   default     = {
     error_code          = "403"
     response_code       = "200"
@@ -43,20 +43,20 @@ variable "response_forbidden"   {
 }
 
 provider "aws" {
-  region     = "${var.region}"
-  access_key = "${var.aws_access_key}"
-  secret_key = "${var.aws_secret_key}"
-  version    = "~> 1.1"
+  region     = var.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+  version    = "~> 2.0"
 }
 
 module "app" {
   source              = "../app"
-  domain              = "${var.domain}"
+  domain              = var.domain
   app_package         = "../../build/app-package.zip"
-  env_vars            = "${var.env_vars}"
+  env_vars            = var.env_vars
   render_interval     = "45 minutes"
-  response_not_found  = "${var.response_not_found}"
-  response_forbidden  = "${var.response_forbidden}"
+  response_not_found  = var.response_not_found
+  response_forbidden  = var.response_forbidden
 }
 
 terraform {
