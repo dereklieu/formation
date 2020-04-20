@@ -6,7 +6,7 @@ node_modules
 # Terraform application sensitive keys
 infrastructure/env-dev/terraform.tfvars
 
-# Terraform backewnd sensitive keys
+# Terraform backend sensitive keys
 infrastructure/env-dev/backend.tfvars
 
 # Terraform modules

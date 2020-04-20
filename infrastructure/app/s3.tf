@@ -11,9 +11,9 @@ data "aws_iam_policy_document" "website_bucket_policy" {
 }
 
 resource "aws_s3_bucket" "website" {
-  bucket    = "${var.domain}"
+  bucket    = var.domain
   acl       = "private"
-  policy    = "${data.aws_iam_policy_document.website_bucket_policy.json}"
+  policy    = data.aws_iam_policy_document.website_bucket_policy.json
 
   website {
     index_document = "index.html"

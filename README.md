@@ -9,7 +9,7 @@ This repo runs [dereklieu.com](https://dereklieu.com).
 This command installs dependencies and builds the site. The `prepare-deploy` step both builds the site and zips it into a Lambda-ready package.
 
 ```
-yarn && yarn prepare-deploy
+npm i && npm run prepare-deploy
 ```
 
 ## Infrastructure Deployment
@@ -28,7 +28,7 @@ access_key = "my-access-key"
 secret_key = "my-secret-key"
 ```
 
-Once this is set, run `yarn terraform-init` to initialize modules and sync with remote backend state.
+Once this is set, run `npm run terraform-init` to initialize modules and sync with remote backend state.
 
 ### Infrastructure Configuration
 
@@ -51,12 +51,12 @@ env_vars = {
 Detect scheduled changes and plan a redeployment or new deployment:
 
 ```
-yarn terraform-plan
+npm run terraform-plan
 ```
 
 
 Deploy (a site package must be built before running this step):
 
 ```
-yarn terraform-apply
+npm run terraform-apply
 ```
