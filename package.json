@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "next-tick": "^1.0.0",
     "react": "16.9",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
