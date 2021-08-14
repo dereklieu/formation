@@ -14,7 +14,7 @@ class Work extends React.Component {
           <title>Work</title>
         </Helmet>
         <main className='main'>
-          <section className='prose' id='greetings'>
+          <section className='prose'>
             <h3 className='main-title bg-dark inline-wrap'>Work</h3>
           </section>
 

@@ -1,11 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const yaml = require('js-yaml')
-
-function random (array) {
-  const index = Math.floor(Math.random() * array.length)
-  return array[index]
-}
+const { random } = require('./utils');
 
 // Loads an image registry and randomly selects an image from it.
 // Returns the image path and credit.
@@ -23,12 +19,11 @@ async function collect () {
   } catch (e) {
     throw new Error(e)
   }
-  const greeting = random(greetings.greetings)
 
   return {
     imageCredit: image.credit,
     imageFile: image.file,
-    greeting
+    greetings: greetings.greetings
   }
 }
 module.exports = collect

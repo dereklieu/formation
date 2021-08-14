@@ -6,17 +6,32 @@ const c = require('classnames')
 const React = require('react')
 const { Helmet } = require('react-helmet')
 const nextTick = require('next-tick')
-const { link } = require('../utils')
+const { link, random } = require('../utils')
 
 const navItems = [
   'about'
 ]
 
+const getUnused = (list, used) => {
+  if (used.length >= list.length) {
+    const next = random(list);
+    return { next, used: new Set([next]) }
+  } else {
+    const pool = list.filter(word => !used.has(word));
+    const next = random(pool);
+    return {
+      next,
+      used: new Set([...used.add(next)])
+    };
+  }
+}
+
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isBlur: false
+      isBlur: false,
+      ...getUnused(props.greetings, new Set())
     }
   }
 
@@ -38,7 +53,8 @@ class App extends React.Component {
   }
 
   render () {
-    const { imageCredit, greeting } = this.props
+    const { imageCredit } = this.props
+    const { next } = this.state;
     return (
       <React.Fragment>
         <Helmet>
@@ -50,7 +66,10 @@ class App extends React.Component {
           <main className='over-spread'>
             <nav className='nav-wrapper'>
               <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
-                <span className='clearfix nav-row'>{greeting.split(' ').map(this.navWord)}</span>
+                <span className='clearfix nav-row'>
+                  {this.navWord('Hello,')}
+                  {next.split(' ').map(this.navWord)}
+                </span>
                 <ul>
                   {navItems.map(this.navItem)}
                 </ul>
