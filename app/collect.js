@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const yaml = require('js-yaml')
-const { random } = require('./utils');
+const { random } = require('./utils')
 
 // Loads an image registry and randomly selects an image from it.
 // Returns the image path and credit.
