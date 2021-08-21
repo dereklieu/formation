@@ -11,16 +11,16 @@
 }
 
 .nav-row {
-  margin: 0.125rem;
+  margin: 0.135rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-item {
   @include title;
-  display: inline-block;
-}
-
-.nav-word {
-  float: left;
+  padding-left: 0.135em;
+  padding-right: 0.135em;
 }
 
 .header-nav-item,
@@ -33,9 +33,7 @@
 
 .header-nav {
   display: flex;
-  flex-direction: row;
   flex-wrap: no-wrap;
-  width: 100%;
 }
 
 .header-nav-items {

@@ -1,0 +1,19 @@
+.input-cursor {
+  @include title;
+  background-color: #FEFEFE;
+  height: 1.75em;
+  width: 4px;
+}
+
+.blink {
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #FEFEFE;
+  }
+}

@@ -1,27 +1,29 @@
 'use strict'
 require('../sass/home.scss')
 require('../sass/nav.scss')
+require('../sass/blink.scss')
 
 const c = require('classnames')
 const React = require('react')
 const { Helmet } = require('react-helmet')
 const { link, random } = require('../utils')
+const { Hello } = require('../components/hello')
 
-const navItems = [
-  'about'
-]
+const getUnused = (list, lastUsed) => {
+  // If everything has been used once, reset the used list,
+  // but ensure we don't randomly choose the same entry twice.
+  // This assumes the list has length of at least 2
+  const used = lastUsed.length >= list.length
+    ? [ lastUsed[lastUsed.length - 1] ]
+    : lastUsed
+  const unused = list.filter(greeting =>
+    used.indexOf(greeting) === -1
+  )
 
-const getUnused = (list, used) => {
-  if (used.length >= list.length) {
-    const next = random(list);
-    return { next, used: new Set([next]) }
-  } else {
-    const pool = list.filter(word => !used.has(word));
-    const next = random(pool);
-    return {
-      next,
-      used: new Set([...used.add(next)])
-    };
+  const greeting = random(unused)
+  return {
+    greeting,
+    used: used.concat(greeting)
   }
 }
 
@@ -30,7 +32,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       isBlur: false,
-      ...getUnused(props.greetings, new Set())
+      greeting: '',
+      used: []
     }
   }
 
@@ -39,21 +42,16 @@ class App extends React.Component {
     const duration = storage && localStorage.getItem('initialBlur') !== 'true' ? 800 : 5
     setTimeout(() => this.setState({ isBlur: true }), duration)
     storage && localStorage.setItem('initialBlur', 'true')
+    this.updateGreeting()
   }
 
-  navItem (displayName) {
-    return <li key={displayName} className='nav-row'>
-      <a className='bg-light nav-item nav-item-hover' href={link(displayName)} title={`Visit ${displayName}`}>{displayName}</a>
-    </li>
-  }
-
-  navWord (displayName, i) {
-    return <span key={i} className='bg-dark nav-item nav-word'>{displayName}</span>
+  updateGreeting = () => {
+    this.setState({ ...getUnused(this.props.greetings, this.state.used) })
   }
 
   render () {
     const { imageCredit } = this.props
-    const { next } = this.state;
+    const { greeting } = this.state
     return (
       <React.Fragment>
         <Helmet>
@@ -65,13 +63,11 @@ class App extends React.Component {
           <main className='over-spread'>
             <nav className='nav-wrapper'>
               <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
-                <span className='clearfix nav-row'>
-                  {this.navWord('Hello,')}
-                  {next.split(' ').map(this.navWord)}
-                </span>
-                <ul>
-                  {navItems.map(this.navItem)}
-                </ul>
+                <Hello
+                  greeting={greeting.trim()}
+                  updateGreeting={this.updateGreeting}
+                />
+                <Navigation />
               </div>
             </nav>
 
@@ -79,10 +75,31 @@ class App extends React.Component {
               <p className='bg-dark image-credit'>{imageCredit}</p>
             </aside>
           </main>
-
         </div>
       </React.Fragment>
     )
   }
 }
+
 module.exports = App
+
+function Navigation () {
+  const items = [
+    'about'
+  ]
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item} className='nav-row'>
+          <a
+            className='bg-light nav-item nav-item-hover'
+            href={link(item)}
+            title={item}
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

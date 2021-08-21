@@ -68,12 +68,13 @@ $xlarge-width: 1200px;
 @mixin title {
   font-size: 1.75em;
   font-weight: bold;
-  padding: 0.135em;
+  line-height: 1.75em;
 }
 
 @mixin small-title {
   font-size: 1.45em;
   font-weight: bold;
+  line-height: 1.75em;
 }
 
 @mixin text {
