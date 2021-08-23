@@ -7,6 +7,7 @@ const c = require('classnames')
 const React = require('react')
 const { Helmet } = require('react-helmet')
 const { link, random } = require('../utils')
+const { paths } = require('../constants')
 const { Hello } = require('../components/hello')
 
 const getUnused = (list, lastUsed) => {
@@ -55,7 +56,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Helmet>
-          <title>Derek Lieu</title>
+          <title>Derek says hello</title>
         </Helmet>
         <div className='home full noscroll'>
           <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
@@ -67,7 +68,7 @@ class App extends React.Component {
                   greeting={greeting.trim()}
                   updateGreeting={this.updateGreeting}
                 />
-                <Navigation />
+                <Goodbye />
               </div>
             </nav>
 
@@ -83,23 +84,18 @@ class App extends React.Component {
 
 module.exports = App
 
-function Navigation () {
-  const items = [
-    'about'
-  ]
+function Goodbye () {
   return (
     <ul>
-      {items.map(item => (
-        <li key={item} className='nav-row'>
-          <a
-            className='bg-light nav-item nav-item-hover'
-            href={link(item)}
-            title={item}
-          >
-            {item}
-          </a>
-        </li>
-      ))}
+      <li className='nav-row'>
+        <a
+          className='bg-light nav-item nav-item-hover'
+          href={link(paths.about)}
+          title="See what this is about"
+        >
+          Goodbye
+        </a>
+      </li>
     </ul>
   )
 }

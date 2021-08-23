@@ -2,6 +2,7 @@ const React = require('react')
 const { renderToString, renderToStaticMarkup } = require('react-dom/server')
 const App = require('./components/app')
 const Page = require('./components/page')
+const { paths } = require('./constants')
 
 module.exports = function ssr ({ webpackStats, content, path }) {
   const assets = Object.keys(webpackStats.compilation.assets)
@@ -15,6 +16,13 @@ module.exports = function ssr ({ webpackStats, content, path }) {
     body,
     content
   }
+
+  // The homepage background image and greetings are bundled inline.
+  // Other pages don't need this.
+  if (path !== paths.home) {
+    pageProps.content = { path }
+  }
+
   const html = `
     <!doctype html>
     ${renderToStaticMarkup(React.createElement(Page, pageProps))}

@@ -3,11 +3,12 @@ require('../sass/nav.scss')
 const React = require('react')
 const c = require('classnames')
 const { link } = require('../utils')
+const { paths } = require('../constants')
 
 const navItems = [
-  { href: '/', display: 'home' },
-  { href: '/about', display: 'about' },
-  { href: '/work', display: 'work' }
+  { href: paths.home, display: 'home' },
+  { href: paths.about, display: 'about' },
+  { href: paths.builds, display: 'builds' }
 ]
 
 function Nav ({ active }) {
