@@ -12,7 +12,7 @@ class About extends React.Component {
         <Helmet>
           <title>About</title>
         </Helmet>
-        <Nav />
+        <Nav active="about" />
         <main className='main prose'>
           <h3 className='main-title bg-dark inline-wrap'>About</h3>
 

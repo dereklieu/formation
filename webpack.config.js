@@ -1,6 +1,7 @@
 const path = require('path')
 const StaticGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const collect = require('./app/collect')
+const { paths } = require('./app/constants')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const dev = process.env.NODE_ENV === 'development'
@@ -66,11 +67,7 @@ async function createWebpackConfig () {
 
     plugins: [
       new StaticGeneratorPlugin({
-        paths: [
-          '/',
-          '/about',
-          '/work'
-        ],
+        paths: Object.values(paths),
         locals: { content }
       }),
       new MiniCssExtractPlugin({

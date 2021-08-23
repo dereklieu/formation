@@ -5,17 +5,17 @@ const React = require('react')
 const { Helmet } = require('react-helmet')
 const Nav = require('../components/nav')
 
-class Work extends React.Component {
+class Builds extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <Nav />
+        <Nav active="builds" />
         <Helmet>
-          <title>Work</title>
+          <title>Builds</title>
         </Helmet>
         <main className='main'>
           <section className='prose'>
-            <h3 className='main-title bg-dark inline-wrap'>Work</h3>
+            <h3 className='main-title bg-dark inline-wrap'>Builds</h3>
           </section>
 
           <section className='section prose' id='brief'>
@@ -142,4 +142,4 @@ class Work extends React.Component {
   }
 }
 
-module.exports = Work
+module.exports = Builds
