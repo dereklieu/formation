@@ -11,7 +11,7 @@
 }
 
 .nav-row {
-  margin: 0.135rem;
+  margin: 0.5rem;
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -26,6 +26,7 @@
 .header-nav-item,
 .nav-item-hover {
   transition: background-color 0.2s ease-in-out;
+  &.active,
   &:hover {
     background-color: red;
   }
@@ -38,8 +39,10 @@
 
 .header-nav-items {
   margin: 1em;
+  display: inline-flex;
 }
 
 .header-nav-item {
+  margin: 0 1em 0 0;
   font-weight: bold;
 }
