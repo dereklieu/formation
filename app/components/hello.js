@@ -66,7 +66,7 @@ export class Hello extends React.Component {
     return <span key={key} className='bg-dark nav-item'>{display}</span>
   }
 
-  render() {
+  render () {
     const { partial } = this.state
     return (
       <div className='nav-row'>

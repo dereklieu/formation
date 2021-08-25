@@ -1,9 +1,9 @@
 'use strict'
-require('../sass/nav.scss')
-const React = require('react')
-const c = require('classnames')
-const { link } = require('../utils')
-const { paths } = require('../constants')
+import '../sass/nav.scss'
+import React from 'react'
+import c from 'classnames'
+import { link } from '../utils'
+import { paths } from '../constants'
 
 const navItems = [
   { href: paths.home, display: 'home' },
@@ -33,4 +33,4 @@ function Nav ({ active }) {
   )
 }
 
-module.exports = Nav
+export default Nav

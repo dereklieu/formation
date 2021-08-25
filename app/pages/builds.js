@@ -1,9 +1,8 @@
 'use strict'
-require('../sass/resume.scss')
-
-const React = require('react')
-const { Helmet } = require('react-helmet')
-const Nav = require('../components/nav')
+import '../sass/resume.scss'
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import Nav from '../components/nav'
 
 class Builds extends React.Component {
   render () {
@@ -142,4 +141,4 @@ class Builds extends React.Component {
   }
 }
 
-module.exports = Builds
+export default Builds

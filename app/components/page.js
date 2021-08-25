@@ -1,11 +1,11 @@
 'use strict'
-require('../sass/reset.scss')
-require('../sass/normalize.scss')
-require('../sass/normalize-opentype.scss')
-require('../sass/base.scss')
-require.context('../assets/images')
+import '../sass/reset.scss'
+import '../sass/normalize.scss'
+import '../sass/normalize-opentype.scss'
+import '../sass/base.scss'
 
-const React = require('react')
+import React from 'react'
+require.context('../assets/images')
 
 const imageCanvasStyle = `
   .image-canvas {
@@ -33,4 +33,4 @@ function Page ({ body, content, css, js }) {
     </html>
   )
 }
-module.exports = Page
+export default Page

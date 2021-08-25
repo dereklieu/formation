@@ -1,6 +1,6 @@
-const mount = require('./mount')
-const ssr = require('./ssr')
+import mount from './mount'
+import ssr from './ssr'
 if (typeof document !== 'undefined') {
   mount()
 }
-module.exports = ssr
+export default ssr

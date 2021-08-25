@@ -1,8 +1,8 @@
 'use strict'
-const slugify = require('slugify')
-const url = require('url')
-const path = require('path')
-const { baseUrl } = require('./config')
+import slugify from 'slugify'
+import url from 'url'
+import path from 'path'
+import { baseUrl } from './config'
 
 export function link (displayName) {
   return url.resolve(baseUrl, path.join(slugify(displayName), 'index.html'))

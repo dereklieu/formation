@@ -1,16 +1,14 @@
 'use strict'
-require('../sass/home.scss')
-require('../sass/nav.scss')
-require('../sass/blink.scss')
-
-const c = require('classnames')
-const React = require('react')
-const { Helmet } = require('react-helmet')
-const { link, random } = require('../utils')
-const { paths } = require('../constants')
-const { Hello } = require('../components/hello')
-
-const { greetings } = require('../assets/greeting.yaml')
+import '../sass/home.scss'
+import '../sass/nav.scss'
+import '../sass/blink.scss'
+import c from 'classnames'
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { link, random } from '../utils'
+import { paths } from '../constants'
+import { Hello } from '../components/hello'
+import { greetings } from '../assets/greeting.yaml'
 
 const getUnused = (lastUsed) => {
   // If everything has been used once, reset the used list,
@@ -84,7 +82,7 @@ class App extends React.Component {
   }
 }
 
-module.exports = App
+export default App
 
 function Goodbye () {
   return (

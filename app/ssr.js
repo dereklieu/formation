@@ -1,10 +1,10 @@
-const React = require('react')
-const { renderToString, renderToStaticMarkup } = require('react-dom/server')
-const App = require('./components/app')
-const Page = require('./components/page')
-const { paths } = require('./constants')
+import React from 'react'
+import { renderToString, renderToStaticMarkup } from 'react-dom/server'
+import App from './components/app'
+import Page from './components/page'
+import { paths } from './constants'
 
-module.exports = function ssr ({ webpackStats, content, path }) {
+export default function ssr ({ webpackStats, content, path }) {
   const assets = Object.keys(webpackStats.compilation.assets)
   const js = assets.filter(a => a.match(/\.js$/))
   const css = assets.filter(a => a.match(/\.css$/))
@@ -28,4 +28,4 @@ module.exports = function ssr ({ webpackStats, content, path }) {
     ${renderToStaticMarkup(React.createElement(Page, pageProps))}
   `
   return html
-}
+};

@@ -1,9 +1,9 @@
 'use strict'
 
-const React = require('react')
-const { Helmet } = require('react-helmet')
-const Nav = require('../components/nav')
-const { link } = require('../utils')
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import Nav from '../components/nav'
+import { link } from '../utils'
 
 class About extends React.Component {
   render () {
@@ -33,4 +33,4 @@ class About extends React.Component {
   }
 }
 
-module.exports = About
+export default About

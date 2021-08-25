@@ -1,11 +1,10 @@
 'use strict'
-const React = require('react')
-const { StaticRouter, Route } = require('react-router-dom')
-
-const { paths } = require('../constants')
-const Home = require('../pages/home')
-const Builds = require('../pages/builds')
-const About = require('../pages/about')
+import React from 'react'
+import { StaticRouter, Route } from 'react-router-dom'
+import { paths } from '../constants'
+import Home from '../pages/home'
+import Builds from '../pages/builds'
+import About from '../pages/about'
 
 class App extends React.Component {
   render () {
@@ -22,4 +21,4 @@ class App extends React.Component {
     return router
   }
 }
-module.exports = App
+export default App

@@ -1,4 +1,4 @@
-module.exports.images = [
+module.exports = [
   {
     file: 'christophe-laurenceau-364504.jpg',
     credit: 'Photo by Christophe Laurenceau on Unsplash'
@@ -11,4 +11,4 @@ module.exports.images = [
     file: 'nasa-45078.jpg',
     credit: 'Photo by NASA on Unsplash'
   }
-];
+]

@@ -1,6 +1,4 @@
-const path = require('path')
-const fs = require('fs')
-const { images } = require('./assets/registry')
+const images = require('./assets/registry')
 
 function random (array) {
   const index = Math.floor(Math.random() * array.length)
@@ -14,4 +12,5 @@ function collect () {
     imageFile: image.file
   }
 }
+
 module.exports = collect
