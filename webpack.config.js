@@ -9,7 +9,7 @@ const mode = dev ? 'development' : 'production'
 
 module.exports = createWebpackConfig
 async function createWebpackConfig () {
-  const content = await collect()
+  const content = collect()
   return {
     mode,
     entry: {
@@ -61,6 +61,12 @@ async function createWebpackConfig () {
           options: {
             name: 'canvas.[ext]'
           }
+        }
+      }, {
+        test: /\.ya?ml$/,
+        type: 'json',
+        use: {
+          loader: 'yaml-loader'
         }
       }]
     },

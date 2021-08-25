@@ -17,7 +17,7 @@ module.exports = function ssr ({ webpackStats, content, path }) {
     content
   }
 
-  // The homepage background image and greetings are bundled inline.
+  // The homepage background image is bundled inline.
   // Other pages don't need this.
   if (path !== paths.home) {
     pageProps.content = { path }

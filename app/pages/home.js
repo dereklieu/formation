@@ -10,14 +10,16 @@ const { link, random } = require('../utils')
 const { paths } = require('../constants')
 const { Hello } = require('../components/hello')
 
-const getUnused = (list, lastUsed) => {
+const { greetings } = require('../assets/greeting.yaml')
+
+const getUnused = (lastUsed) => {
   // If everything has been used once, reset the used list,
   // but ensure we don't randomly choose the same entry twice.
   // This assumes the list has length of at least 2
-  const used = lastUsed.length >= list.length
+  const used = lastUsed.length >= greetings.length
     ? [ lastUsed[lastUsed.length - 1] ]
     : lastUsed
-  const unused = list.filter(greeting =>
+  const unused = greetings.filter(greeting =>
     used.indexOf(greeting) === -1
   )
 
@@ -47,7 +49,7 @@ class App extends React.Component {
   }
 
   updateGreeting = () => {
-    this.setState({ ...getUnused(this.props.greetings, this.state.used) })
+    this.setState({ ...getUnused(this.state.used) })
   }
 
   render () {
