@@ -63,6 +63,18 @@ async function createWebpackConfig () {
           }
         }
       }, {
+        test: /\.(png|jpe?g|gif)$/i,
+        exclude: [
+          path.resolve(__dirname, 'app/assets/covers')
+        ],
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            outputPath: 'images'
+          }
+        }
+      }, {
         test: /\.ya?ml$/,
         type: 'json',
         use: {

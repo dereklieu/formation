@@ -37,7 +37,7 @@ a {
   }
 
   p {
-    line-height: 1.2;
+    line-height: 1.75;
     margin-bottom: 2em;
     &:last-child {
       margin-bottom: 0;
@@ -46,6 +46,7 @@ a {
 
   .section {
     &:after {
+      margin-top: 1em;
       content: '----';
       display: block;
       text-align: center;
@@ -59,12 +60,17 @@ a {
 }
 
 .section {
-  margin-top: 4vh;
+  margin-top: 2em;
   position: relative;
 }
 
 .section-title {
   @include small-title;
+}
+
+.section-img {
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 .noscroll {
