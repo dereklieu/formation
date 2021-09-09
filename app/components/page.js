@@ -5,7 +5,7 @@ import '../sass/normalize-opentype.scss'
 import '../sass/base.scss'
 
 import React from 'react'
-require.context('../assets/images')
+require.context('../assets/covers')
 
 const imageCanvasStyle = `
   .image-canvas {
