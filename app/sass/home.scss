@@ -1,10 +1,3 @@
-.image-canvas {
- // These styles are hardcoded in the HTML <head>.
- // background: url("canvas.jpg") no-repeat center center fixed;
- // background-size: cover;
-}
-
-/* left-aligned image credit */
 .image-credit-wrapper {
   bottom: 1em;
   right: 0;
@@ -24,4 +17,33 @@
 .image-credit {
   display: inline-block;
   padding: 0.135em 0.25em;
+}
+
+.home-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.greetings {
+  margin: 10vh auto 0;
+  width: 80%;
+}
+
+.greeting-row {
+  margin: 0.5rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.greeting {
+  @include title;
+  padding-left: 0.135em;
+  padding-right: 0.135em;
+}
+
+a.greeting {
+  @include title-hover;
 }

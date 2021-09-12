@@ -1,48 +1,15 @@
-.nav-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.nav-items {
-  margin: 10vh auto 0;
-  width: 80%;
-}
-
-.nav-row {
-  margin: 0.5rem;
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.nav-item {
-  @include title;
-  padding-left: 0.135em;
-  padding-right: 0.135em;
-}
-
-.header-nav-item,
-.nav-item-hover {
-  transition: background-color 0.2s ease-in-out;
-  &.active,
-  &:hover {
-    background-color: red;
-  }
-}
-
-.header-nav {
+.nav {
   display: flex;
   flex-wrap: no-wrap;
 }
 
-.header-nav-items {
+.nav-items {
   margin: 1em;
   display: inline-flex;
 }
 
-.header-nav-item {
+.nav-item {
   margin: 0 1em 0 0;
-  font-weight: bold;
+  @include small-title;
+  @include title-hover;
 }

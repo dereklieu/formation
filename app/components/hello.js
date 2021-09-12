@@ -63,13 +63,13 @@ export class Hello extends React.Component {
   }
 
   renderNavWord (display, key) {
-    return <span key={key} className='bg-dark nav-item'>{display}</span>
+    return <span key={key} className='bg-dark greeting'>{display}</span>
   }
 
   render () {
     const { partial } = this.state
     return (
-      <div className='nav-row'>
+      <div className='greeting-row'>
         {this.renderNavWord('Hello,')}
         {partial ? partial.split(' ').map(this.renderNavWord) : null}
         <Cursor />

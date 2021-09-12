@@ -13,14 +13,14 @@ const navItems = [
 
 function Nav ({ active }) {
   return (
-    <nav className='header-nav'>
-      <ul className='header-nav-items'>
+    <nav className='nav'>
+      <ul className='nav-items'>
         {navItems.map(item => (
           <li key={item.href}>
             <a
               href={link(item.href)}
               className={c(
-                'header-nav-item bg-dark inline-wrap',
+                'nav-item transition bg-dark inline-wrap',
                 { active: active === item.display }
               )}
             >

@@ -71,8 +71,14 @@ $xlarge-width: 1200px;
   line-height: 2em;
 }
 
-@mixin small-title {
+@mixin med-title {
   font-size: 1.45em;
+  font-weight: bold;
+  line-height: 1.75em;
+}
+
+@mixin small-title {
+  font-size: 1em;
   font-weight: bold;
   line-height: 1.75em;
 }
@@ -85,4 +91,11 @@ $xlarge-width: 1200px;
 @mixin small-text {
   font-size: 0.875em;
   line-height: 1.4;
+}
+
+@mixin title-hover {
+  &.active,
+  &:hover {
+    background-color: red;
+  }
 }

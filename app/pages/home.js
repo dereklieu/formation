@@ -58,12 +58,12 @@ class App extends React.Component {
         <Helmet>
           <title>Derek says hello</title>
         </Helmet>
-        <div className='home full noscroll'>
+        <div className='full noscroll'>
           <div className={c('spread image-canvas transition-filter', { blur: this.state.isBlur })} />
 
           <main className='over-spread'>
-            <nav className='nav-wrapper'>
-              <div className={c('nav-items transition-filter', { blur: !this.state.isBlur })}>
+            <nav className='home-content'>
+              <div className={c('greetings transition-filter', { blur: !this.state.isBlur })}>
                 <Hello
                   greeting={greeting.trim()}
                   updateGreeting={this.updateGreeting}
@@ -87,9 +87,9 @@ export default App
 function Goodbye () {
   return (
     <ul>
-      <li className='nav-row'>
+      <li className='greeting-row'>
         <a
-          className='bg-light nav-item nav-item-hover'
+          className='bg-light greeting transition'
           href={link(paths.about)}
           title="See what this is about"
         >
