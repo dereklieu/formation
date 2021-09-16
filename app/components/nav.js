@@ -6,9 +6,9 @@ import { link } from '../utils'
 import { paths } from '../constants'
 
 const navItems = [
-  { href: paths.home, display: 'home' },
-  { href: paths.about, display: 'about' },
-  { href: paths.builds, display: 'builds' }
+  { href: paths.home, display: 'Home' },
+  { href: paths.about, display: 'About' },
+  { href: paths.builds, display: 'Builds' }
 ]
 
 function Nav ({ active }) {
@@ -21,7 +21,7 @@ function Nav ({ active }) {
               href={link(item.href)}
               className={c(
                 'nav-item transition bg-dark inline-wrap',
-                { active: active === item.display }
+                { active: active.toLowerCase() === item.display.toLowerCase() }
               )}
             >
               {item.display}

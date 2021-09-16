@@ -20,8 +20,9 @@ function Page ({ body, content, css, js }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="I'm an engineer and product lead, and I live in San Francisco." />
+        <meta name="description" content="I'm a software engineer living in San Francisco." />
         <title>Derek Lieu</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP" rel="stylesheet" />
         {css.map((href, i) => <link rel="stylesheet" key={`css-${i}`} href={'/' + href}/>)}
         <style dangerouslySetInnerHTML={{ __html: imageCanvasStyle }} />
       </head>
