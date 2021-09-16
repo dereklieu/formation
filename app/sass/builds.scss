@@ -1,0 +1,32 @@
+.builds {
+  max-width: 1200px;
+  font-family: $nice-font;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.build {
+  width: 100%;
+  @include medium-up {
+    width: 48%;
+  }
+}
+
+.build-image {
+  background-size: cover;
+  background-position: top left;
+  height: 0;
+  width: 100%;
+  padding-bottom: 55%;
+}
+
+.build-description {
+  margin: 0.5em 0 3em;
+  color: #666;
+}
+
+.build-title {
+  color: #000;
+  line-height: $prose-line-height;
+}

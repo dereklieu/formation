@@ -10,6 +10,7 @@
 
 .nav-item {
   margin: 0 1em 0 0;
+  padding: 0 0.135em;
   @include small-title;
   @include title-hover;
 }
