@@ -6,14 +6,25 @@
   justify-content: space-between;
 }
 
-.build {
+.build-m {
+  cursor: pointer;
   width: 100%;
   @include medium-up {
     width: 48%;
   }
 }
 
+.build-l {
+  cursor: pointer;
+  width: 100%;
+  @include medium-up {
+    padding: 0 10%;
+    width: 80%;
+  }
+}
+
 .build-image {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
   background-size: cover;
   background-position: top left;
   height: 0;
@@ -21,12 +32,18 @@
   padding-bottom: 55%;
 }
 
-.build-description {
-  margin: 0.5em 0 3em;
-  color: #666;
+.build-title {
+  color: #111;
+  line-height: $prose-line-height;
 }
 
-.build-title {
-  color: #000;
-  line-height: $prose-line-height;
+.build-description {
+  color: #666;
+  margin: 0.5em 0 3em;
+}
+
+.hover {
+  .build-title {
+    color: $blue;
+  }
 }
