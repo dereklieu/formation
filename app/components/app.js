@@ -4,11 +4,25 @@ import { StaticRouter, Route } from 'react-router-dom'
 import { paths } from '../constants'
 import Home from '../pages/home'
 import Builds from '../pages/builds'
+import Build from '../pages/build'
 import About from '../pages/about'
+
+import { formatPathSection } from '../utils'
+import { builds } from '../builds'
 
 class App extends React.Component {
   render () {
     const { path } = this.props
+
+    const localBuilds = builds.filter(b => !b.external).map(build => (
+      <Route
+        exact
+        key={build.title}
+        path={formatPathSection(`/build/${build.title}`)}
+        render={(props) => <Build {...props} />}
+      />
+    ))
+
     const router = (
       <StaticRouter location={path}>
         <Route exact path={paths.home}
@@ -16,6 +30,7 @@ class App extends React.Component {
         />
         <Route exact path={paths.builds} component={Builds} />
         <Route exact path={paths.about} component={About} />
+        {localBuilds}
       </StaticRouter>
     )
     return router

@@ -4,8 +4,21 @@ import url from 'url'
 import path from 'path'
 import { baseUrl } from './config'
 
-export function link (displayName) {
-  return url.resolve(baseUrl, path.join(slugify(displayName), 'index.html'))
+export function formatPathSection (pathSection) {
+  const formatted = pathSection
+    .split('/')
+    .map(slugify)
+    .map(s => s.toLowerCase())
+    .join('/')
+  return formatted
+}
+
+export function link (pathSection) {
+  const result = url.resolve(
+    baseUrl,
+    path.join(formatPathSection(pathSection), 'index.html')
+  )
+  return result
 }
 
 export function random (array) {

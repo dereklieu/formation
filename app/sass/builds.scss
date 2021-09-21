@@ -30,6 +30,7 @@
   height: 0;
   width: 100%;
   padding-bottom: 55%;
+  filter: grayscale(80%);
 }
 
 .build-title {
@@ -45,5 +46,9 @@
 .hover {
   .build-title {
     color: $blue;
+  }
+
+  .build-image {
+    filter: none;
   }
 }
