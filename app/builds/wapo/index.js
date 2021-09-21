@@ -6,5 +6,6 @@ import table from './images/table.png'
 export const title = 'Washington Post election coverage'
 export const description = '2016 was a shitty election. That said, the maps looked great.'
 export const card = margin
+export const banner = true
 
 // https://www.developmentseed.org/blog/2016-09-08-preview-the-washington-posts-election-maps
