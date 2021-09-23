@@ -4,6 +4,8 @@ import * as chill from './chill'
 import * as urchn from './urchn'
 import * as happeningNow from './happening-now'
 import * as brennan from './brennan'
+import * as skynetScrub from './skynet-scrub'
+import * as macrocosm from './macrocosm'
 
 export const builds = [
   studio,
@@ -12,4 +14,6 @@ export const builds = [
   brennan,
   happeningNow,
   wapo,
+  skynetScrub,
+  macrocosm
 ]
