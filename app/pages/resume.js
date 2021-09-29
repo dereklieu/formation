@@ -13,7 +13,7 @@ class Resume extends React.Component {
           <title>Resume</title>
         </Helmet>
         <main className='main'>
-          <section className='prose'>
+          <section className='prose wmax480'>
             <h3 className='main-title bg-dark inline-wrap'>Resume</h3>
           </section>
 

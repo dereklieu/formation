@@ -36,7 +36,7 @@ class About extends React.Component {
         <main className='main'>
           <h3 className='main-title bg-dark inline-wrap'>About</h3>
 
-          <div className='prose'>
+          <div className='prose wmax480'>
             <section className='section'>
               <p>I'm Derek. Sparks fear me. I fear losing fingers.</p>
               <Image src={me} alt='Derek grinding down some iron' className='section-img' />

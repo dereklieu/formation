@@ -27,8 +27,11 @@ a {
   }
 }
 
-.prose {
+.wmax480 {
   max-width: 480px;
+}
+
+.prose {
   font-family: $nice-font;
   line-height: $prose-line-height;
   a {
