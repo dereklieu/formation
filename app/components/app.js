@@ -19,7 +19,7 @@ class App extends React.Component {
         exact
         key={build.title}
         path={formatPathSection(`/build/${build.title}`)}
-        render={(props) => <Build {...props} />}
+        render={(props) => <Build {...props} title={build.title} content={build.content} />}
       />
     ))
 

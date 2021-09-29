@@ -3,7 +3,7 @@ import c from 'classnames'
 
 export default function Image (props) {
   const { alt } = props
-  const className = c(props.className, 'image')
+  const className = c(props.className, 'img')
   const src = imageUri(props.src)
   return <img src={src} className={className} alt={alt} />
 }

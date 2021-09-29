@@ -21,7 +21,7 @@ function Nav ({ active }) {
               href={link(item.href)}
               className={c(
                 'nav-item transition bg-dark inline-wrap',
-                { active: active.toLowerCase() === item.display.toLowerCase() }
+                { active: active && active.toLowerCase() === item.display.toLowerCase() }
               )}
             >
               {item.display}
