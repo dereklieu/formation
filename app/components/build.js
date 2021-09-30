@@ -6,13 +6,13 @@ import { link } from '../utils'
 export default function Build (props) {
   const [ isHover, setHover ] = useState(false)
   const { title, description, card, banner } = props
-  const container = c({
+  const container = c('pointer', {
     'build-l': banner,
     'build-m': !banner,
     'hover': isHover
   })
   const href = props.external || link(`/build/${title}`)
-  const linkProps = { href };
+  const linkProps = { href }
   if (props.external) linkProps.target = '_blank'
   return (
     <div

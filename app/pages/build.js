@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import c from 'classnames'
 
 import Image from '../components/image'
 import Nav from '../components/nav'
@@ -31,17 +32,17 @@ function renderContents (c, i) {
     case 'prose':
       return <Prose content={c.content} key={i} />
       break
+    case 'image':
+      return <Hero src={c.content} caption={c.caption} key={i} size="small" />
   }
 }
 
-function Hero ({ src, caption }) {
+function Hero ({ src, caption, size }) {
+  const figureClass = c({'build-l': size === 'small'})
   return (
     <section className='section'>
-      <figure>
-        <Image
-          className=''
-          src={src}
-        />
+      <figure className={figureClass}>
+        <Image src={src}/>
         {Boolean(caption) && (
           <figcaption>{caption}</figcaption>
         )}
