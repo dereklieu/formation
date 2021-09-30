@@ -13,7 +13,6 @@ export default function Build (props) {
   })
   const href = props.external || link(`/build/${title}`)
   const linkProps = { href }
-  if (props.external) linkProps.target = '_blank'
   return (
     <div
       className={container}
