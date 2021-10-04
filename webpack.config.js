@@ -87,7 +87,7 @@ async function createWebpackConfig () {
       new StaticGeneratorPlugin({
         paths: Object.values(paths).concat(
           '/build/mapbox-studio',
-          '/build/chill-city',
+          '/build/a-miata',
           '/build/washington-post-election-coverage'
         ),
         locals: { content }

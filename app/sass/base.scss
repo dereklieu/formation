@@ -160,3 +160,10 @@ figcaption {
   font-style: italic;
   color: #666;
 }
+
+.numbered-list {
+  list-style-type: decimal;
+  line-height: $prose-line-height;
+  margin-left: 2em;
+  margin-bottom: 2em;
+}
