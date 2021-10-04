@@ -6,6 +6,7 @@ import Home from '../pages/home'
 import Builds from '../pages/builds'
 import Build from '../pages/build'
 import About from '../pages/about'
+import Resume from '../pages/resume'
 
 import { formatPathSection } from '../utils'
 import { builds } from '../builds'
@@ -30,6 +31,7 @@ class App extends React.Component {
         />
         <Route exact path={paths.builds} component={Builds} />
         <Route exact path={paths.about} component={About} />
+        <Route exact path='/resume' component={Resume} />
         {localBuilds}
       </StaticRouter>
     )
