@@ -47,8 +47,9 @@ class Resume extends React.Component {
               <dd>
                 <ul>
                   <li><em>Lead engineer, front-end development</em></li>
-                  {/*<li>Led engineering team for map design product with TODO active monthly users.</li>*/}
-                  <li>Launched Data Visualization Components.</li>
+                  <li>Led mid-sized engineering team in maintaining and innovating on a map design platform.</li>
+                  <li>Served as change management officer, ensuring quality releases.</li>
+                  <li>Launched critical features such as Data Visualization Components.</li>
                   <li>Built deployment workflow and Redux architecture for Style Components.</li>
                   <li>Mentored engineers and supported product designers.</li>
                 </ul>
@@ -58,7 +59,7 @@ class Resume extends React.Component {
               <dd>
                 <ul>
                   <li><em>Server-side development</em></li>
-                  {/*<li>Developed Express API serving TODO monthly records.</li>*/}
+                  <li>Contributor on Express API serving millions of weekly records.</li>
                 </ul>
               </dd>
 
